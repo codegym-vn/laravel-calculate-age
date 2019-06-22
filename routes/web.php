@@ -11,6 +11,15 @@
 |
 */
 
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('calculate_age');
+});
+
+Route::get('/{date}', function ($birthday) {
+    $years = Carbon::parse($birthday)->age;
+    echo "Tuổi của bạn là: " . $years;
+
 });
